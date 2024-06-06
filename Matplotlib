@@ -1,0 +1,64 @@
+-CONTOH 1
+
+import matplotlib.pyplot as plt
+
+# Data
+gender = [1, 0, 1, 1, 0, 1, 1, 0, 1, 1]
+ipk = [3.5, 3.2, 3.8, 2.9, 3.1, 3.6, 2.7, 3.9, 3.3, 3.2]
+
+plt.figure(figsize=(6, 4))
+
+#status 1
+pria = [ipk[i] for i in range(len(gender)) if gender[i] == 1]
+#status 0
+wanita = [ipk[i] for i in range(len(gender)) if gender[i] == 0]
+
+plt.scatter([1]*len(pria), pria, color='r', label='pria (1)')
+plt.scatter([0]*len(wanita), wanita, color='y', label='wanita (0)')
+
+# Visualisasi
+plt.xlabel('Gender')
+plt.ylabel('IPK')
+plt.title('Hubungan antara Gender dan IPK')
+plt.legend()
+plt.xticks([0, 1], ['wanita', 'pria'])
+plt.grid(True)
+plt.show()
+
+
+-CONTOH 2
+
+import seaborn as sns 
+import matplotlib.pyplot as plt 
+
+status_kelulusan = [1, 0, 1, 1, 0, 1, 1, 0, 1, 1]
+ipk = [3.5, 3.2, 3.8, 2.9, 3.1, 3.6, 2.7, 3.9, 3.3, 3.2]
+
+# Data Usia dan Ipk
+
+# Histogram
+plt.figure(figsize=(6, 4))
+sns.histplot(ipk, bins=30, kde=True, color='y')
+plt.title('Distribusi Usia berdasarkan umur')
+plt.xlabel('Ipk')
+plt.ylabel('Status kelulusan')
+plt.grid(True)
+plt.show()
+
+-CONTOH 3
+
+import seaborn as sns 
+import matplotlib.pyplot as plt 
+
+# Data Usia dan Ipk
+usia = [20,22,21,23,20,22,21,24,23,20,22,21]
+ipk = [3.5,3.2,3.8,2.9,3.1,3.6,2.7,3.9,3.3,3.2,3.7,3.1]
+
+# Visualisasi
+plt.figure(figsize=(6, 4))
+sns.regplot(x=usia, y= ipk)
+plt.title('Distribusi Usia berdasarkan umur')
+plt.xlabel('usia')
+plt.ylabel('Ipk')
+plt.grid(True)
+plt.show()
